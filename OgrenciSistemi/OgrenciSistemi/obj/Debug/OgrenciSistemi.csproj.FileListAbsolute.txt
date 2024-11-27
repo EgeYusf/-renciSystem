@@ -1,0 +1,7 @@
+C:\Users\avcue\source\repos\OgrenciSistemi\OgrenciSistemi\bin\Debug\OgrenciSistemi.exe.config
+C:\Users\avcue\source\repos\OgrenciSistemi\OgrenciSistemi\bin\Debug\OgrenciSistemi.exe
+C:\Users\avcue\source\repos\OgrenciSistemi\OgrenciSistemi\bin\Debug\OgrenciSistemi.pdb
+C:\Users\avcue\source\repos\OgrenciSistemi\OgrenciSistemi\obj\Debug\OgrenciSistemi.csproj.AssemblyReference.cache
+C:\Users\avcue\source\repos\OgrenciSistemi\OgrenciSistemi\obj\Debug\OgrenciSistemi.csproj.CoreCompileInputs.cache
+C:\Users\avcue\source\repos\OgrenciSistemi\OgrenciSistemi\obj\Debug\OgrenciSistemi.exe
+C:\Users\avcue\source\repos\OgrenciSistemi\OgrenciSistemi\obj\Debug\OgrenciSistemi.pdb
