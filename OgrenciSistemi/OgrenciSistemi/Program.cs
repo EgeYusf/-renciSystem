@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 // Base Class
-abstract class Person
+abstract class Person //Person sınıfı bir abstract class (soyut sınıf) olarak tanımlanmıştır.
 {
     public int ID { get; set; }
     public string Name { get; set; }
@@ -13,31 +13,31 @@ abstract class Person
         Name = name;
     }
 
-    public abstract void DisplayInfo();
+    public abstract void DisplayInfo(); // void herhangi bir değer döndürmez
 }
 
 // Interface
-interface ILogin
+interface ILogin 
 {
     void Login();
 }
 
 // Derived Class: Ogrenci
-class Ogrenci : Person, ILogin
+class Ogrenci : Person, ILogin  //Ogrenci sınıfı, Person sınıfının tüm özelliklerini (ID, Name) ve yapıcı metodunu kullanabilir.
 {
     public string StudentNumber { get; set; }
 
-    public Ogrenci(int id, string name, string studentNumber) : base(id, name)
+    public Ogrenci(int id, string name, string studentNumber) : base(id, name) // personda tanımlananı çeker
     {
         StudentNumber = studentNumber;
     }
 
-    public override void DisplayInfo()
+    public override void DisplayInfo() // override Person sınıfında) tanımlı olan bir sanal veya soyut  metodu yeniden tanımlamak için kullanılır.
     {
-        Console.WriteLine($"Öğrenci - ID: {ID}, İsim: {Name}, Numara: {StudentNumber}");
+        Console.WriteLine($"Öğrenci - ID: {ID}, İsim: {Name}, Numara: {StudentNumber}"); // Burada da yazdırıyoruz.
     }
 
-    public void Login()
+    public void Login() //Login yapıldıgında {} isim ne giriliyorsa
     {
         Console.WriteLine($"Öğrenci {Name} sisteme giriş yaptı.");
     }
@@ -84,13 +84,13 @@ class Course
 
     public void AddStudent(Ogrenci student)
     {
-        if (EnrolledStudents.Exists(s => s.ID == student.ID))
+        if (EnrolledStudents.Exists(s => s.ID == student.ID)) //Öğrencinin Önceden Kayıtlı Olup Olmadığını Kontrol Etme
         {
             Console.WriteLine($"{student.Name} zaten bu derse kayıtlı.");
         }
-        else
+        else //Eğer kayıtlı değilse else bloguna girer ve add metoduyla kaydeder.
         {
-            EnrolledStudents.Add(student);
+            EnrolledStudents.Add(student); 
             Console.WriteLine($"{student.Name} başarıyla {CourseName} dersine eklendi.");
         }
     }
@@ -99,11 +99,11 @@ class Course
     {
         Console.WriteLine($"Ders: {CourseName}, Kredi: {Credits}, Öğretim Görevlisi: {Instructor.Name}");
         Console.WriteLine("Kayıtlı Öğrenciler:");
-        if (EnrolledStudents.Count == 0)
+        if (EnrolledStudents.Count == 0) // Derse kayıtlı öğrencilerin sayısını kontrol eder.
         {
-            Console.WriteLine(" - Henüz öğrenci yok.");
+            Console.WriteLine(" - Henüz öğrenci yok.");  // Yoksa yok mesajı verilir.
         }
-        else
+        else // Var ise foreach döngüsüyle öğrencileri yazdırır.
         {
             foreach (var student in EnrolledStudents)
             {
@@ -118,12 +118,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<Ogrenci> students = new List<Ogrenci>();
-        List<OgretimGorevlisi> instructors = new List<OgretimGorevlisi>();
-        List<Course> courses = new List<Course>();
+        List<Ogrenci> students = new List<Ogrenci>();  // Sistemdeki tüm öğrencileri tutar.
+        List<OgretimGorevlisi> instructors = new List<OgretimGorevlisi>(); //Sistemdeki öğretim görevlilerini tutar.
+        List<Course> courses = new List<Course>(); //Sistemdeki dersleri tutar.
 
-        while (true)
-        {
+        while (true) // Sonsuz döngü olusturduk kullanıcı 8 i seçene kadar program çalışır
+        { // Menü kısmı
+        
             Console.WriteLine("\n--- Öğrenci ve Ders Yönetim Sistemi ---");
             Console.WriteLine("1. Öğrenci Ekle");
             Console.WriteLine("2. Öğretim Görevlisi Ekle");
@@ -138,7 +139,7 @@ class Program
 
             switch (choice)
             {
-                case 1:
+                case 1: //1. Öğrenci Ekle (Case 1)
                     Console.Write("Öğrenci ID: ");
                     int studentId = int.Parse(Console.ReadLine());
                     Console.Write("Öğrenci Adı: ");
@@ -149,7 +150,7 @@ class Program
                     Console.WriteLine("Öğrenci başarıyla eklendi!");
                     break;
 
-                case 2:
+                case 2:  //2. Öğretim Görevlisi Ekle (Case 2)
                     Console.Write("Öğretim Görevlisi ID: ");
                     int instructorId = int.Parse(Console.ReadLine());
                     Console.Write("Öğretim Görevlisi Adı: ");
@@ -158,7 +159,7 @@ class Program
                     Console.WriteLine("Öğretim Görevlisi başarıyla eklendi!");
                     break;
 
-                case 3:
+                case 3: //3. Ders Ekle (Case 3)
                     Console.Write("Ders Adı: ");
                     string courseName = Console.ReadLine();
                     Console.Write("Kredisi: ");
@@ -173,7 +174,7 @@ class Program
                     Console.WriteLine("Ders başarıyla eklendi!");
                     break;
 
-                case 4:
+                case 4:  //4. Derse Öğrenci Ekle (Case 4)
                     Console.WriteLine("Ders Seçin:");
                     for (int i = 0; i < courses.Count; i++)
                     {
